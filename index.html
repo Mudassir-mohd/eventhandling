@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Handling Example</title>
+  <style>
+    .button { margin: 10px; padding: 10px 20px; cursor: pointer; }
+    #output { margin-top: 20px; font-size: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>Event Handling with JavaScript</h1>
+  <div id="buttons-container"></div>
+  <p id="output"></p>
+
+  <script>
+    // Create a container for buttons
+    let container = document.getElementById("buttons-container");
+    let output = document.getElementById("output");
+
+    // Array of button labels
+    let buttonLabels = ["Button 1", "Button 2", "Button 3"];
+
+    // Loop through each label to create buttons dynamically
+    buttonLabels.forEach(label => {
+      let button = document.createElement("button");
+      button.textContent = label;
+      button.classList.add("button");
+
+      // Add an event listener to each button
+      button.addEventListener("click", () => {
+        output.textContent = `You clicked ${label}`;
+      });
+
+      // Append the button to the container
+      container.appendChild(button);
+    });
+
+    // Additional event for the container
+    container.addEventListener("mouseover", () => {
+      container.style.backgroundColor = "#f0f0f0";
+    });
+
+    container.addEventListener("mouseout", () => {
+      container.style.backgroundColor = "";
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Content and Styling Change</title>
+  <style>
+    #text-element {
+      padding: 20px;
+      margin: 20px;
+      border: 2px solid #333;
+      background-color: lightgray;
+    }
+
+    .styled-button {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .styled-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Change Content and Styling with DOM</h1>
+
+  <div id="text-element">
+    This is some text. Click the button to change this content and its style.
+  </div>
+
+  <button id="change-button" class="styled-button">Change Content & Style</button>
+
+  <script>
+    // Get the DOM elements
+    let textElement = document.getElementById("text-element");
+    let changeButton = document.getElementById("change-button");
+
+    // Function to change the content and style
+    function changeContentAndStyle() {
+      // Change the content of the element
+      textElement.textContent = "The content has been changed! You clicked the button.";
+
+      // Change the style of the element
+      textElement.style.backgroundColor = "lightblue";   // Change background color
+      textElement.style.color = "darkblue";               // Change text color
+      textElement.style.fontSize = "20px";                // Change font size
+      textElement.style.fontWeight = "bold";              // Make text bold
+      textElement.style.border = "2px solid #4CAF50";     // Change border
+
+      // Optionally change the button style after click
+      changeButton.style.backgroundColor = "#45a049";
+      changeButton.style.cursor = "not-allowed";  // Change cursor to 'not-allowed'
+      changeButton.setAttribute("disabled", "true"); // Disable the button after clicking
+    }
+
+    // Attach the event listener to the button
+    changeButton.addEventListener("click", changeContentAndStyle);
+  </script>
+
+</body>
+</html>
